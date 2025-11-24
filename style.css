@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+:root {
+    --primary-color: #007BFF;
+    --green-accent: #28a745;
+    --dark-color: #222;
+    --light-color: #f4f4f4;
+    --background-color: #fff;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --dark-resume-bg: #1a1a1a;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+/* --- Navigation & Footer (from previous design) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #333;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar .nav-brand { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; }
+.navbar .nav-links a { color: white; text-decoration: none; margin: 0 1rem; padding-bottom: 5px; transition: all 0.3s ease; }
+.navbar .nav-links a:hover, .navbar .nav-links a.active { color: var(--green-accent); border-bottom: 2px solid var(--green-accent); }
+.navbar .icon { display: none; font-size: 1.5rem; cursor: pointer; color: white; text-decoration: none; }
+.footer { text-align: center; padding: 2rem; background: var(--dark-color); color: white; }
+
+/* --- Hero Section (for Home Page) --- */
+.hero { height: 90vh; display: flex; justify-content: center; align-items: center; text-align: center; color: white; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover; }
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.btn { display: inline-block; padding: 0.8rem 2rem; background: var(--green-accent); color: white; border: none; border-radius: 5px; text-decoration: none; margin-top: 1rem; transition: background 0.3s ease; }
+.btn:hover { background: #218838; }
+
+/* --- New Resume/Bio-data Design --- */
+.resume-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--dark-resume-bg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.left-column {
+    background: white;
+    width: 35%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-pic-container {
+    width: 250px;
+    height: 250px;
+    /* clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+    background: var(--green-accent);
+    border:5px solid #1a1a1a;
+}
+.profile-pic { width: 100%; height: 100%; object-fit: cover; }
+.name-section { margin: 1rem 0; }
+.name { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--green-accent); margin: 0; }
+.title { margin: 0; font-weight: 600; }
+.contact-info { text-align: left; width: 100%; margin: 2rem 0; }
+.contact-info h3 { border-bottom: 2px solid #eee; padding-bottom: 5px; margin-bottom: 1rem; }
+.contact-info ul { list-style: none; padding: 0; }
+.contact-info li { margin-bottom: 0.8rem; display: flex; align-items: center; }
+.contact-info i { color: var(--green-accent); margin-right: 10px; width: 20px; text-align: center; }
+.signature { margin-top: auto; }
+.name-signature { font-family: 'Great Vibes', cursive; font-size: 2rem; }
+
+.right-column {
+    background: var(--green-accent);
+    color: white;
+    width: 65%;
+    padding: 3rem;
+}
+.section-title { text-transform: uppercase; border-bottom: 2px solid white; padding-bottom: 10px; margin-bottom: 2rem; }
+.timeline { position: relative; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: white; }
+.timeline-item { margin-bottom: 2rem; padding-left: 30px; position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: 2px; top: 5px; width: 18px; height: 18px; background: white; border-radius: 50%; }
+.timeline-date { font-weight: 600; margin-bottom: 0.5rem; }
+.timeline-content h3 { margin: 0 0 0.5rem 0; font-size: 1.2rem; }
+.timeline-content p { margin: 0; }
+
+.skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.skill-item { text-align: center; }
+.skill-item i { font-size: 3rem; }
+.skill-level { margin-top: 0.5rem; }
+.dot { height: 10px; width: 10px; background-color: rgba(255,255,255,0.5); border-radius: 50%; display: inline-block; margin: 0 2px; }
+.dot.filled { background-color: white; }
+.bio-content ul { list-style: none; padding: 0; }
+.bio-content li { margin-bottom: 0.5rem; }
+
+
+/* --- Responsive Design --- */
+@media screen and (max-width: 992px) {
+    .resume-container { flex-direction: column; }
+    .left-column, .right-column { width: 100%; box-sizing: border-box; }
+}
+@media screen and (max-width: 768px) {
+    .navbar .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 60px; left: 0; background: #333; }
+    .navbar .nav-links.responsive { display: flex; }
+    .navbar .nav-links a { padding: 1rem; text-align: center; border-bottom: none; }
+    .navbar .icon { display: block; }
+    .hero h1 { font-size: 2.5rem; }
+}
+
